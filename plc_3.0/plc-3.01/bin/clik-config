@@ -1,0 +1,28 @@
+#! /usr/bin/env python
+# don't do much for now
+from optparse import OptionParser
+parser = OptionParser()
+
+parser.add_option("--cflags", action="store_true",
+                  help="only the cflags")
+parser.add_option("--libs", action="store_true",
+                  help="only libflags")
+
+(options, args) = parser.parse_args()
+
+
+res={}
+cflags = "-I/Users/Qianshu/Downloads/code/plc_3.0/plc-3.01/include -DPYTHONDIR=\"/Users/Qianshu/Downloads/code/plc_3.0/plc-3.01/lib/python2.7/site-packages\" -DPYTHONARCHDIR=\"/Users/Qianshu/Downloads/code/plc_3.0/plc-3.01/lib/python2.7/site-packages\" -DHAVE_PYEMBED=1 -DHAVE_PYTHON_H=1 -DHAVE_LAPACK_CLIK_H=1 -DHAVE_FITSIO_H=1 -DHAS_LAPACK -DLAPACK_CLIK -DHAS_RTLD_DEFAULT -arch x86_64"
+libs = "-Wl,-rpath,/Users/Qianshu/Downloads/code/plc_3.0/plc-3.01/lib -Wl,-rpath,/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Versions/Current -Wl,-rpath,/usr/local/gfortran/lib -L/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Versions/Current -L/usr/local/gfortran/lib -lBLAS -lLAPACK -ldl -lcfitsio -lgfortran -lgomp -lclik"
+
+if (not options.libs) and (not options.cflags):
+  options.libs=True
+  options.cflags=True
+
+if options.cflags:
+  print cflags,
+if options.libs:
+  print libs,
+print
+
+

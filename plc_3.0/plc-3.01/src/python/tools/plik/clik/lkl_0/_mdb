@@ -1,0 +1,12 @@
+bin_max_tt int 215
+bin_min_tt int 1
+bin_min_ee int 1
+bin_max_ee int 199
+external_dir str .
+lmax int 2508
+bin_max_te int 199
+bin_min_te int 1
+lkl_type str plik_cmbonly
+unit int 1
+lmin int 30
+cmbonly_version int 22
